@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour
+public class Shooter : MonoBehaviour
 {
-    [SerializeField] private Bulet _bullet;
+    [SerializeField] private Bulet _bulletPrefab;
     [SerializeField] private Transform _shotPosiiton;
     [SerializeField] private float _speed;
     [SerializeField] private float _delay;
@@ -22,7 +22,7 @@ public class Shoot : MonoBehaviour
         while (isWork)
         {
             Vector3 direction = (_shotPosiiton.position - transform.position).normalized;
-            Bulet currentBullet = Instantiate(_bullet, transform.position + direction, Quaternion.identity);
+            Bulet currentBullet = Instantiate(_bulletPrefab, transform.position + direction, Quaternion.identity);
 
             rigidbodyBullet = currentBullet.GetComponent<Rigidbody>();
 
